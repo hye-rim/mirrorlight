@@ -219,7 +219,7 @@ function openLevels() {
     const g = document.createElement('div'); g.className = 'grid';
     LV.WORLD_OF.forEach((o, i) => {
       if (o.world !== wi) return;
-      const b = document.createElement('button'); b.className = 'lv' + (isOpen(i) ? '' : ' locked') + (i === cur ? ' cur' : ''); b.dataset.level = i;
+      const b = document.createElement('button'); b.className = 'lv' + (isOpen(i) ? '' : ' locked') + (i === cur ? ' cur' : ''); b.setAttribute('data-level', i);
       const s = starsSaved[i] || 0; b.innerHTML = `${o.no}<small>${isOpen(i) ? '★'.repeat(s) + '☆'.repeat(3 - s) : '🔒'}</small>`;
       b.onclick = () => { if (!isOpen(i)) return; $('ovLevels').classList.add('hidden'); load(i); tutorialSignal('pick'); };
       g.appendChild(b);
